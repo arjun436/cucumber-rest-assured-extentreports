@@ -1,0 +1,1121 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Cucumber Framework</title>
+
+	<style type='text/css'>
+			
+      
+        
+      
+		
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1)" view='testrunner-logs-view'><i class='material-icons'>note</i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>Cucumber Extent Report</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Jul 4, 2019 04:20:35 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.2</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@get</a></li>
+					<li><a href='#'>@getfail</a></li>
+					<li><a href='#'>@post</a></li>
+					<li><a href='#'>@postfail</a></li>
+					<li><a href='#'>@put</a></li>
+					<li><a href='#'>@putfail</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>3</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>3</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>3</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='90.625%'><span class='strong'>29</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='9.375%'>3</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>GET: Automated Demo Tests</span>
+						<span class='test-time'>Jul 4, 2019 04:20:35 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 0m 3s+407ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">GET: Test the Demo app</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@get</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">GET: Test the Demo app</span>
+			
+				<ul class='steps'>
+					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I want to set URL as "/api/users?page=2" for test case "Demo test"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://reqres.in/api/users?page=2</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='5' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I set header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='6' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I hit the API with requestbody "" and request method is "GET"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"page":1,"per_page":3,"total":12,"total_pages":4,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/olegpogodaev/128.jpg"}]}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='7' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I try to verify the status code is "200"</span>
+							<div class='pre'>pass :: Status Code is :: 200</div>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='8' status='fail'>
+	<span class='duration right label'>0h 0m 0s+524ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">GET: Test the Demo app</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='9' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@getfail</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">GET: Test the Demo app</span>
+			
+				<ul class='steps'>
+					<li test-id='10' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I want to set URL as "/api/users?page=3" for test case "Demo test"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://reqres.in/api/users?page=3</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I set header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='12' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I hit the API with requestbody "" and request method is "GET"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"page":1,"per_page":3,"total":12,"total_pages":4,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/olegpogodaev/128.jpg"}]}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='13' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then I try to verify the status code is "201"</span>
+							<div class='pre'><pre>java.lang.AssertionError: expected [201] but found [200]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at com.factory.cucumber.stepdefinitions.StepDefinitions.verifyStatusCode(StepDefinitions.java:97)
+	at ?.Then I try to verify the status code is "201"(DemoFeatureGet.feature:21)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='14'>
+					<div class='test-heading'>
+						<span class='test-name'>POST: Automated Demo Tests</span>
+						<span class='test-time'>Jul 4, 2019 04:20:39 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='15' status='pass'>
+	<span class='duration right label'>0h 0m 3s+547ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">POST: Test the Demo app</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='16' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@post</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">POST: Test the Demo app</span>
+			
+				<ul class='steps'>
+					<li test-id='17' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I want to set URL as "/api/users" for test case "Demo test"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://reqres.in/api/users</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='18' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I set header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I hit the API with requestbody "testdata/test.json" and request method is "POST"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"name":"morpheus","job":"leader","id":"408","createdAt":"2019-07-04T10:50:40.484Z"}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='20' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I try to verify the status code is "201"</span>
+							<div class='pre'>pass :: Status Code is :: 201</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='21' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I try to verify the response value "name" is "morpheus"</span>
+							<div class='pre'>Actual Value is  ::morpheus</div>
+							<div class='pre'>Expected Value is  ::morpheus</div>
+							<div class='pre'>pass name : Expected value : morpheus mathches with Actual Value : morpheus</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='22' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I try to verify the response value "job" is "leader"</span>
+							<div class='pre'>Actual Value is  ::leader</div>
+							<div class='pre'>Expected Value is  ::leader</div>
+							<div class='pre'>pass job : Expected value : leader mathches with Actual Value : leader</div>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='23' status='fail'>
+	<span class='duration right label'>0h 0m 0s+508ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">POST: Test the Demo app</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='24' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@postfail</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">POST: Test the Demo app</span>
+			
+				<ul class='steps'>
+					<li test-id='25' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I want to set URL as "/api/users" for test case "Demo test"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://reqres.in/api/users</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='26' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I set header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='27' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I hit the API with requestbody "testdata/test.json" and request method is "POST"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"name":"morpheus","job":"leader","id":"584","createdAt":"2019-07-04T10:50:43.696Z"}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='28' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I try to verify the status code is "201"</span>
+							<div class='pre'>pass :: Status Code is :: 201</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='29' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I try to verify the response value "name" is "morpheus"</span>
+							<div class='pre'>Actual Value is  ::morpheus</div>
+							<div class='pre'>Expected Value is  ::morpheus</div>
+							<div class='pre'>pass name : Expected value : morpheus mathches with Actual Value : morpheus</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='30' class='node and fail' status='fail'><b>And</b>
+						<span class="bdd-step-name">And I try to verify the response value "job" is "leaders"</span>
+							<div class='pre'>Actual Value is  ::leader</div>
+							<div class='pre'>Expected Value is  ::leaders</div>
+							<div class='pre'>fail job : Expected value : leaders do not matches with Actual Value : leader</div>
+							<div class='pre'><pre>java.lang.AssertionError: expected [leaders] but found [leader]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at com.factory.cucumber.stepdefinitions.StepDefinitions.compareResponseValues(StepDefinitions.java:124)
+	at com.factory.cucumber.stepdefinitions.StepDefinitions.verifyResponseValue(StepDefinitions.java:109)
+	at ?.And I try to verify the response value "job" is "leaders"(DemoFeaturePost.feature:26)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='31'>
+					<div class='test-heading'>
+						<span class='test-name'>PUT: Automated Demo Tests</span>
+						<span class='test-time'>Jul 4, 2019 04:20:43 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='32' status='pass'>
+	<span class='duration right label'>0h 0m 0s+493ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">PUT: Test the Demo app</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='33' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@put</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">PUT: Test the Demo app</span>
+			
+				<ul class='steps'>
+					<li test-id='34' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I want to set URL as "/api/users/2" for test case "Demo test"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://reqres.in/api/users/2</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='35' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I set header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='36' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I hit the API with requestbody "testdata/test2.json" and request method is "PUT"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"name":"morpheus","job":"zion resident","id":"528","createdAt":"2019-07-04T10:50:44.186Z"}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='37' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I try to verify the status code is "201"</span>
+							<div class='pre'>pass :: Status Code is :: 201</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='38' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I try to verify the response value "name" is "morpheus"</span>
+							<div class='pre'>Actual Value is  ::morpheus</div>
+							<div class='pre'>Expected Value is  ::morpheus</div>
+							<div class='pre'>pass name : Expected value : morpheus mathches with Actual Value : morpheus</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='39' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I try to verify the response value "job" is "zion resident"</span>
+							<div class='pre'>Actual Value is  ::zion resident</div>
+							<div class='pre'>Expected Value is  ::zion resident</div>
+							<div class='pre'>pass job : Expected value : zion resident mathches with Actual Value : zion resident</div>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='40' status='fail'>
+	<span class='duration right label'>0h 0m 0s+476ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">PUT: Test the Demo app</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='41' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@putfail</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">PUT: Test the Demo app</span>
+			
+				<ul class='steps'>
+					<li test-id='42' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I want to set URL as "/api/users/2" for test case "Demo test"</span>
+							<div class='pre'>pass :: Cucumber Hostname URL is :: https://reqres.in/api/users/2</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='43' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I set header content type as "application/json"</span>
+							<div class='pre'>pass :: content type is :: application/json</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='44' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I hit the API with requestbody "testdata/test2.json" and request method is "PUT"</span>
+							<div class='pre'>pass :: Request successfully processed</div>
+							<div class='pre'>Response is :: {"name":"morpheus","job":"zion resident","id":"585","createdAt":"2019-07-04T10:50:44.661Z"}</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='45' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I try to verify the status code is "201"</span>
+							<div class='pre'>pass :: Status Code is :: 201</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='46' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I try to verify the response value "name" is "morpheus"</span>
+							<div class='pre'>Actual Value is  ::morpheus</div>
+							<div class='pre'>Expected Value is  ::morpheus</div>
+							<div class='pre'>pass name : Expected value : morpheus mathches with Actual Value : morpheus</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='47' class='node and fail' status='fail'><b>And</b>
+						<span class="bdd-step-name">And I try to verify the response value "job" is "zion residesnt"</span>
+							<div class='pre'>Actual Value is  ::zion resident</div>
+							<div class='pre'>Expected Value is  ::zion residesnt</div>
+							<div class='pre'>fail job : Expected value : zion residesnt do not matches with Actual Value : zion resident</div>
+							<div class='pre'><pre>java.lang.AssertionError: expected [zion residesnt] but found [zion resident]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at com.factory.cucumber.stepdefinitions.StepDefinitions.compareResponseValues(StepDefinitions.java:124)
+	at com.factory.cucumber.stepdefinitions.StepDefinitions.verifyResponseValue(StepDefinitions.java:109)
+	at ?.And I try to verify the response value "job" is "zion residesnt"(DemoFeaturePut.feature:25)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@get</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 4, 2019 04:20:35 PM</td>
+										<td class='linked' test-id='3'>GET: Automated Demo Tests.GET: Test the Demo app.GET: Test the Demo app</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@getfail</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 4, 2019 04:20:39 PM</td>
+										<td class='linked' test-id='9'>GET: Automated Demo Tests.GET: Test the Demo app.GET: Test the Demo app</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@post</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 4, 2019 04:20:39 PM</td>
+										<td class='linked' test-id='16'>POST: Automated Demo Tests.POST: Test the Demo app.POST: Test the Demo app</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@postfail</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 4, 2019 04:20:43 PM</td>
+										<td class='linked' test-id='24'>POST: Automated Demo Tests.POST: Test the Demo app.POST: Test the Demo app</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@put</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 4, 2019 04:20:43 PM</td>
+										<td class='linked' test-id='33'>PUT: Automated Demo Tests.PUT: Test the Demo app.PUT: Test the Demo app</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@putfail</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 4, 2019 04:20:44 PM</td>
+										<td class='linked' test-id='41'>PUT: Automated Demo Tests.PUT: Test the Demo app.PUT: Test the Demo app</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>java.lang.AssertionError</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>3</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Jul 4, 2019 04:20:39 PM</td>
+                                                        <td class='linked' test-id='13'>GET: Automated Demo Tests.GET: Test the Demo app.GET: Test the Demo app.Then I try to verify the status code is "201"</td>
+                                                        <td><pre><pre>java.lang.AssertionError: expected [201] but found [200]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at com.factory.cucumber.stepdefinitions.StepDefinitions.verifyStatusCode(StepDefinitions.java:97)
+	at ?.Then I try to verify the status code is "201"(DemoFeatureGet.feature:21)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jul 4, 2019 04:20:43 PM</td>
+                                                        <td class='linked' test-id='30'>POST: Automated Demo Tests.POST: Test the Demo app.POST: Test the Demo app.And I try to verify the response value "job" is "leaders"</td>
+                                                        <td><pre><pre>java.lang.AssertionError: expected [leaders] but found [leader]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at com.factory.cucumber.stepdefinitions.StepDefinitions.compareResponseValues(StepDefinitions.java:124)
+	at com.factory.cucumber.stepdefinitions.StepDefinitions.verifyResponseValue(StepDefinitions.java:109)
+	at ?.And I try to verify the response value "job" is "leaders"(DemoFeaturePost.feature:26)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jul 4, 2019 04:20:44 PM</td>
+                                                        <td class='linked' test-id='47'>PUT: Automated Demo Tests.PUT: Test the Demo app.PUT: Test the Demo app.And I try to verify the response value "job" is "zion residesnt"</td>
+                                                        <td><pre><pre>java.lang.AssertionError: expected [zion residesnt] but found [zion resident]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at com.factory.cucumber.stepdefinitions.StepDefinitions.compareResponseValues(StepDefinitions.java:124)
+	at com.factory.cucumber.stepdefinitions.StepDefinitions.verifyResponseValue(StepDefinitions.java:109)
+	at ?.And I try to verify the response value "job" is "zion residesnt"(DemoFeaturePut.feature:25)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>3</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>6</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>32</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jul 4, 2019 04:20:35 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jul 4, 2019 04:20:44 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>9,127ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>user</td>
+								<td>arjun</td>
+							</tr>
+							<tr>
+								<td>os</td>
+								<td>Windows 10</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@get</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@getfail</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@post</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@postfail</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@put</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@putfail</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<div id='testrunner-logs-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>TestRunner Logs</h5>
+		
+		<div class='card-panel'>
+				Sample test runner output message
+		</div>
+	</div>
+</div>
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 3,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 3,
+				
+				passChild: 3,
+				failChild: 3,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 3,
+				
+				passGrandChild: 29,
+				failGrandChild: 3,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 3,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 			
+      
+        $(document).ready(function() {
+        
+        });
+      
+		
+ 		</script>
+	</body>
+	
+</html>
