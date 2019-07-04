@@ -12,6 +12,7 @@ https://reqres.in/
 - [MAVEN_Dependencies](#MAVEN_Dependencies)
 - [SetUp](#SetUp)
 - [Add_features_and_respective_step_definitions](#Add_features_and_respective_step_definitions)
+- [Support](#Support)
 
 ---
 
@@ -152,3 +153,12 @@ Feature: GET: Automated Demo Tests
       | TestName  | URL               | ContentType      | RequestBody | RequestMethod | StatusCode |
       | Demo test | /api/users?page=2 | application/json |             | GET           |        200 |
 ```
+
+## Support
+
+Reach out to me at one of the following places!
+
+- FaceBook at <a href="https://www.facebook.com/chinna.mir.3" target="_blank">`arjun`</a>
+- Twitter at <a href="https://twitter.com/arjun436" target="_blank">`@arjun436`</a>
+
+---
