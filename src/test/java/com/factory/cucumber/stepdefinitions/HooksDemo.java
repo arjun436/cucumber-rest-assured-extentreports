@@ -38,4 +38,24 @@ public class HooksDemo {
 			logger.info("Status Code is not as expected :: " + StepDefinitions.STATUS_CODE);
 		}
 	}
+	
+	@Before(order = 1)
+	public void before1() {
+		logger.info("Before1 runs in priority order 1");
+	}
+	
+	@Before(order = 2)
+	public void before2() {
+		logger.info("Before2 runs in priority order 2");
+	}
+	
+	@After(order = 1)
+	public void after1() {
+		logger.info("After1 runs in priority order 2");
+	}
+	
+	@After(order = 2)
+	public void after2() {
+		logger.info("After2 runs in priority order 1");
+	}
 }
