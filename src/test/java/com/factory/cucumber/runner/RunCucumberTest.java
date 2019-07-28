@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(format = { "pretty" }, features = "src//test//java//com//factory//cucumber//features", glue = {
-		"com.factory.cucumber.stepdefinitions" }, tags = { "@get,@post,@put,@getfail,@postfail,@putfail" }, plugin = {
+		"com.factory.cucumber.stepdefinitions" }, tags = { "@hooks" }, plugin = {
 				"com.cucumber.listener.ExtentCucumberFormatter:src/test/reports/cucumber_report.html",
 				"html:output/html-report" }, monochrome = true)
 public class RunCucumberTest {
@@ -23,5 +23,4 @@ public class RunCucumberTest {
 		Reporter.setSystemInfo("os", "Windows 10");
 		Reporter.setTestRunnerOutput("Sample test runner output message");
 	}
-
 }
