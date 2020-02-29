@@ -2,8 +2,8 @@ package com.factory.cucumber.stepdefinitions;
 
 import java.util.logging.Logger;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Test;
+import org.junit.Assert;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -18,7 +18,6 @@ public class HooksDemoTest {
 	public static String RESPONSEBODY;
 	public static Response response;
 	
-	@Test
 	@Before
 	public void setAPIEndpointURL() {
 		String apiHostName = "https://reqres.in";
@@ -28,7 +27,6 @@ public class HooksDemoTest {
 		logger.info("Cucumber Test case name is :: " + testName);
 	}
 	
-	@Test
 	@After
 	public void verifyStatusCode() {
 		String statusCode="200";
@@ -42,25 +40,21 @@ public class HooksDemoTest {
 		}
 	}
 	
-	@Test
 	@Before(order = 1)
 	public void before1() {
 		logger.info("Before1 runs in priority order 1");
 	}
 	
-	@Test
 	@Before(order = 2)
 	public void before2() {
 		logger.info("Before2 runs in priority order 2");
 	}
 	
-	@Test
 	@After(order = 1)
 	public void after1() {
 		logger.info("After1 runs in priority order 2");
 	}
 	
-	@Test
 	@After(order = 2)
 	public void after2() {
 		logger.info("After2 runs in priority order 1");

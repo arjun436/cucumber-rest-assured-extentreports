@@ -7,8 +7,8 @@ import java.util.logging.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import com.aventstack.extentreports.Status;
 import com.cucumber.listener.Reporter;
@@ -32,7 +32,6 @@ public class StepDefinitionsTest {
 	public static String RESPONSEBODY;
 	public static Response response;
 	
-	@Test
 	@Given("^I want to set URL as \"([^\"]*)\" for test case \"([^\"]*)\"$")
 	public void setAPIEndpointURL(String URL, String testCaseName) {
 		String apiHostName = "https://reqres.in";
@@ -43,7 +42,6 @@ public class StepDefinitionsTest {
 		logger.info("Cucumber Test case name is :: " + testName);
 	}
 
-	@Test
 	@When("^I set header content type as \"([^\"]*)\"$")
 	public void setHeader(String contentType) {
 		if (contentType != null && !contentType.isEmpty()) {
@@ -56,7 +54,6 @@ public class StepDefinitionsTest {
 		}
 	}
 
-	@Test
 	@And("^I hit the API with requestbody \"([^\"]*)\" and request method is \"([^\"]*)\"$")
 	public void submitRequest(String requestBodyPath, String requestType) throws Throwable {
 		RestAssured.baseURI = apiEndPointUri;
@@ -91,7 +88,6 @@ public class StepDefinitionsTest {
 		Reporter.addStepLog("Response is :: " + RESPONSEBODY);
 	}
 
-	@Test
 	@Then("^I try to verify the status code is \"([^\"]*)\"$")
 	public void verifyStatusCode(String statusCode) {
 		if (statusCode.equals(String.valueOf(STATUS_CODE))) {
@@ -105,7 +101,6 @@ public class StepDefinitionsTest {
 		}
 	}
 
-	@Test
 	@And("^I try to verify the response value \"([^\"]*)\" is \"([^\"]*)\"$")
 	public void verifyResponseValue(String responseKey, String value) throws Throwable {
 		Object obj = responseKey;
