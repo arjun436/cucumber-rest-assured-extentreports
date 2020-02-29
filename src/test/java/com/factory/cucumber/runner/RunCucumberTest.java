@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(format = { "pretty" }, features = "src//test//java//com//factory//cucumber//features", glue = {
-		"com.factory.cucumber.stepdefinitions" }, tags = { "@smoke" }, plugin = {
+		"com.factory.cucumber.stepdefinitions" }, tags = { "@hooks,@get,@smoke" }, plugin = {
 				"com.cucumber.listener.ExtentCucumberFormatter:src/test/reports/cucumber_report.html",
 				"html:output/html-report" }, monochrome = true)
 public class RunCucumberTest {
