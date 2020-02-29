@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
 import com.cucumber.listener.Reporter;
@@ -20,8 +21,8 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public class StepDefinitions {
-	private final static Logger logger = Logger.getLogger(StepDefinitions.class.getName());
+public class StepDefinitionsTest {
+	private final static Logger logger = Logger.getLogger(StepDefinitionsTest.class.getName());
 	public static String apiEndPointUri;
 	public static String testName;
 	public static String CONTENT_TYPE;
@@ -30,7 +31,8 @@ public class StepDefinitions {
 	public static String REQUESTBODY;
 	public static String RESPONSEBODY;
 	public static Response response;
-
+	
+	@Test
 	@Given("^I want to set URL as \"([^\"]*)\" for test case \"([^\"]*)\"$")
 	public void setAPIEndpointURL(String URL, String testCaseName) {
 		String apiHostName = "https://reqres.in";
@@ -41,6 +43,7 @@ public class StepDefinitions {
 		logger.info("Cucumber Test case name is :: " + testName);
 	}
 
+	@Test
 	@When("^I set header content type as \"([^\"]*)\"$")
 	public void setHeader(String contentType) {
 		if (contentType != null && !contentType.isEmpty()) {
@@ -53,6 +56,7 @@ public class StepDefinitions {
 		}
 	}
 
+	@Test
 	@And("^I hit the API with requestbody \"([^\"]*)\" and request method is \"([^\"]*)\"$")
 	public void submitRequest(String requestBodyPath, String requestType) throws Throwable {
 		RestAssured.baseURI = apiEndPointUri;
@@ -87,6 +91,7 @@ public class StepDefinitions {
 		Reporter.addStepLog("Response is :: " + RESPONSEBODY);
 	}
 
+	@Test
 	@Then("^I try to verify the status code is \"([^\"]*)\"$")
 	public void verifyStatusCode(String statusCode) {
 		if (statusCode.equals(String.valueOf(STATUS_CODE))) {
@@ -100,6 +105,7 @@ public class StepDefinitions {
 		}
 	}
 
+	@Test
 	@And("^I try to verify the response value \"([^\"]*)\" is \"([^\"]*)\"$")
 	public void verifyResponseValue(String responseKey, String value) throws Throwable {
 		Object obj = responseKey;
