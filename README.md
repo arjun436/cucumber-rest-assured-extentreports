@@ -1,4 +1,4 @@
-# cucumber-rest-assured-extentreports vanilla project
+# cucumber-rest-assured-extentreports vanilla project.
 This project is a plan project with Cucumber framework to automate Rest API's.
   - Automation of restfull api or webservices projects with Rest Assured
   - This also includes the extent reporting.
