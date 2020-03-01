@@ -1,5 +1,5 @@
 #Author: Arjun
-Feature: POST: Automated Demo Tests
+Feature: POST: Automated Demo Test
   Description: POST: The purpose of this feature is to test some demo app.
 
   @post
