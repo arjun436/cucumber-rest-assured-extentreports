@@ -112,6 +112,12 @@
 			<artifactId>extentreports</artifactId>
 			<version>3.1.2</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin -->
+		<dependency>
+   		 <groupId>org.apache.maven.plugins</groupId>
+   		 <artifactId>maven-checkstyle-plugin</artifactId>
+   		 <version>3.1.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<!-- <sourceDirectory>${project.basedir}/src/test/java/com/factory/cucumber/stepdefinitions</sourceDirectory> 
